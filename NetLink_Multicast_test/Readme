@@ -1,0 +1,26 @@
+#Tested in RHEL 6.7 (2.6.32)
+
+1. Compile the kernel code by executing
+#make 
+
+2. Compile the userspace code by
+#gcc -o test userspace_test_mul.c
+
+3. Execute
+./test &
+
+4. Insert the kernel module:
+#insmod netlink_multicast.ko
+
+5. Output expected:
+
+//Userspace Output:
+Received message payload: Hello from kernel
+Ok, listening.
+
+//Kernel dmesg output:
+Entering: hello_init
+Creating skb.
+Sending skb.
+Success.
+
