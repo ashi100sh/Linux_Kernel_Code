@@ -1,0 +1,26 @@
+
+
+1. Compile the kernel code by executing
+#make 
+
+2. Insert the kernel module:
+#insmod netlink_unicast.ko
+
+3. Compile the userspace code by
+#gcc -o test userspace_test.c
+
+4. Execute
+./test
+
+5. Output expected:
+
+//Userspace Output:
+Sending message to kernel
+Waiting for message from kernel
+Received message payload: Hello from kernel 
+
+
+//Kernel dmesg output:
+Entering: hello_init
+Entering: hello_nl_recv_msg
+Netlink received msg payload:Hello
